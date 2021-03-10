@@ -11,6 +11,12 @@ $theList    VM names with CSV format
 
 ## deallocateStoppedVM.ps1
 
+deallocate stopped VMs
+
+### input parameter
+
+$vmResourceGroups deallocate VMs in this Resource Group
+
 ## vmPowerControl .ps1
 
 ## vmPowerControlInRG.ps1
