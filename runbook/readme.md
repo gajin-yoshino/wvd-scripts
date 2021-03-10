@@ -28,3 +28,9 @@ $vmResourceGroup    Resource Group which has VMs
 $excludedVMs    list skipped VMs with CSV format
 
 ## vmPowerControlInRG.ps1
+
+Start and Deallocate all VMs in the listed resource groups
+
+### input parameter
+$Action start / stop
+$vmResourceGroup    list Resource Groups with CSV format
