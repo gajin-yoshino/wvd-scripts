@@ -1,0 +1,15 @@
+//
+// ユーザ毎に最新の接続時間情報
+// 30日前からを範囲とする
+// 
+WVDConnections 
+| where State == "Connected"
+| where  TimeGenerated > ago(30d)
+| project CorrelationId , UserName, ConnectionType, SessionHostName, StartTime=TimeGenerated  
+| join (WVDConnections  
+    | where State == "Completed"  
+    | project EndTime=TimeGenerated, CorrelationId)  
+    on CorrelationId  
+| summarize arg_max(StartTime, *) by UserName
+| project SessionHostName, UserName, StartTime, EndTime
+| sort by SessionHostName asc 

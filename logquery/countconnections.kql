@@ -1,0 +1,13 @@
+//
+// 過去30日間の接続数
+// 同日内の同じユーザの複数アクセスは重複カウント
+// Started: when a user selects and connects to an app or desktop in the Remote Desktop client.
+// Connected: when the user successfully connects to the VM where the app or desktop is hosted.
+// Completed: when the user or server disconnects the session the activity took place in.
+// 
+WVDConnections 
+| where State == "Connected"
+| where  TimeGenerated > ago(30d)
+| project ConnectDate = format_datetime(TimeGenerated, 'yyyy-MM-dd'), UserName
+| summarize Count = count() by ConnectDate
+| sort by ConnectDate
