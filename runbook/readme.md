@@ -19,13 +19,17 @@ $vmResourceGroups deallocate VMs in this Resource Group
 
 ## vmPowerControl .ps1
 
+- version 2.1
 Start and Deallocate VMs and you can specify VMs skipped in this process.
+tagged VM is skipped in the process.
+       tag: power
+    value: skip-start   skip start of Automation job
+              skip-stop    skip stop of Automation job
 
 ### input parameter
 
 $Action start / stop
 $vmResourceGroup    Resource Group which has VMs
-$excludedVMs    list skipped VMs with CSV format
 
 ## vmPowerControlInRG.ps1
 
