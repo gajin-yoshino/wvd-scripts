@@ -38,3 +38,8 @@ Start and Deallocate all VMs in the listed resource groups
 ### input parameter
 $Action start / stop
 $vmResourceGroup    list Resource Groups with CSV format
+
+## reviveProvisiningFailedVM.ps1
+
+This runbook starts recovery process for provisining failed virtual machines.
+Once it stops these VMs, then it continues triggering a start process until they run successfully.
